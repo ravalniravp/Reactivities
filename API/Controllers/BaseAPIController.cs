@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace API.Controllers
 {
@@ -10,10 +12,9 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class BaseAPIController : ControllerBase
     {
-        
-        public BaseAPIController()
-        {
+        private IMediator _mediator;
 
-        }
+        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+
     }
 }
