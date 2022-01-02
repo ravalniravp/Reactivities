@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+
     public class ActivitiesController: BaseAPIController
     {
         private readonly DataContext _context;
